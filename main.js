@@ -11,7 +11,7 @@ typedText = typedText.replace(/[^a-z'\s]+/g, "");
 // We will learn more about how to use the replace function in an upcoming lesson.
 
 letterCounts = {};//use the idea of associative arrays from the lesson
-wordCounts = {};
+let wordCounts = {};
 
 for(let i = 0; i < typedText.length; i++) {
     currentLetter = typedText[i];
@@ -22,6 +22,15 @@ for(let i = 0; i < typedText.length; i++) {
         letterCounts[currentLetter]++;
      }
     // do something for each letter.
+ }
+ 
+ for(i =0; i = arrayOfWords.length; i++) {
+     let word = arrayOfWords[i];
+     if(!wordCounts[word]) {
+         wordCounts[word] = 1;
+     }else{
+         wordCounts[word++]
+     }
  }
 
  for(letter in letterCounts) {
