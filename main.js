@@ -2,6 +2,7 @@
 
 document.getElementById("countButton").onclick = function() {
     var typedText = document.getElementById("textInput").value;
+    var arrayOfWords = document.getElementById("textInput").value;
 
  typedText = typedText.toLowerCase();
 // This changes all the letter to lower case.
@@ -11,7 +12,8 @@ typedText = typedText.replace(/[^a-z'\s]+/g, "");
 // We will learn more about how to use the replace function in an upcoming lesson.
 
 letterCounts = {};//use the idea of associative arrays from the lesson
-let wordCounts = {};
+words = typedText.split(/\s/);
+wordCounts = {};
 
 for(let i = 0; i < typedText.length; i++) {
     currentLetter = typedText[i];
@@ -24,15 +26,7 @@ for(let i = 0; i < typedText.length; i++) {
     // do something for each letter.
  }
  
- for(i =0; i = arrayOfWords.length; i++) {
-     let word = arrayOfWords[i];
-     if(!wordCounts[word]) {
-         wordCounts[word] = 1;
-     }else{
-         wordCounts[word++]
-     }
- }
-
+ 
  for(letter in letterCounts) {
     let span = document.createElement("span");
     let textContent = document.createTextNode('"' + letter + "\": " + letterCounts[letter] + ", ");
@@ -41,9 +35,25 @@ for(let i = 0; i < typedText.length; i++) {
  }
 
 
- words = typedText.split(/\s/);
- }
+ for(i =0; i <words.length; i++) {
+    let word = words[i];
+    
+    if(wordCounts[word] === undefined) {
+        wordCounts[word] = 1;
+    }else{
+        wordCounts[word]++;
+    }
+}
+for(words in wordCounts) {
+    let span = document.createElement("span");
+    let textContent = document.createTextNode('"' + words + "\": " + wordCounts[words] + ", ");
+    span.appendChild(textContent);
+    document.getElementById("wordsDiv").appendChild(span);
+}
 
 
  
+ }
+
+
  
